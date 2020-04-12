@@ -48,8 +48,8 @@ function begin() {
         }
         
     } else if(selected=='Números Primos'){
-        alert("primos")
-        
+        primes(vOne,vTwo);
+
     } else if(selected=='Días entre Fechas'){
         alert("días")
 
@@ -57,7 +57,8 @@ function begin() {
         alert("edad")
 
     } else if(selected=='Nombre Propio'){
-        alert("nombre")
+
+        alert(name(chain))
 
     } else if(selected=='Palíndromo'){
         if(palindromo){
@@ -115,6 +116,30 @@ function palindromo(chain){
 	return true;
     //document.write("Tu frase "+resultado);
   }
+
+  function primes(num1,num2) {
+    for (num1; num1<= num2; num1++) {
+        var conta=0;
+       for(var j=1;j<=num1;j++){
+           if(num1%j==0){
+               conta++;
+
+           }
+       }
+       if(conta==2){
+          alert(num1)
+        //document.write(num1 + "<br>")
+           //alert(i)
+       }
+    }
+    
+}
+
+function name(chain) {
+  
+    return chain.toLowerCase().trim().split(' ').map( v => v[0].toUpperCase() + v.substr(1)).join(' ');  
+  }
+  
 
    //const dates = [
 
