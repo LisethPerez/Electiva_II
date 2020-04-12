@@ -6,6 +6,10 @@ function onlyNums(e) {
 function begin() {
     const vOne = parseInt(document.getElementById('valueOne').value);
     const vTwo = parseInt(document.getElementById('valueTwo').value);
+    const date1 = new Date(document.getElementById('dateOne').value);
+    const date2 = new Date(document.getElementById('dateTwo').value);
+    
+    
     var combo = document.getElementById('opt');
     var chain = document.getElementById('chain').value;
     var selected = combo.options[combo.selectedIndex].text;
@@ -51,10 +55,10 @@ function begin() {
         primes(vOne,vTwo);
 
     } else if(selected=='Días entre Fechas'){
-        alert("días")
+        dates(date1,date2);
 
     } else if(selected=='Edad (Fecha Final)'){
-        alert("edad")
+        age(date1)
 
     } else if(selected=='Nombre Propio'){
 
@@ -139,6 +143,25 @@ function name(chain) {
   
     return chain.toLowerCase().trim().split(' ').map( v => v[0].toUpperCase() + v.substr(1)).join(' ');  
   }
+
+function dates(date1,date2){
+   
+    var daysdif= date2.getTime()-date1.getTime();
+	var contdias = Math.round(daysdif/(1000*60*60*24));
+    
+    alert(contdias);
+}
+
+function age(date1){
+    var today = new Date();
+    var age = today.getFullYear() - date1.getFullYear();
+    var month = today.getMonth() - date1.getMonth();
+
+    if (month < 0 || (month === 0 && today.getDate() < date.getDate())) {
+        age--;
+    }
+    alert(age)
+}
   
 
    //const dates = [
